@@ -17,12 +17,9 @@ const onRequest = (request, response) => {
   const parsedUrl = url.parse(request.url);
   const params = query.parse(parsedUrl.query);
 
-  if(urlStruct[parsedUrl.pathname])
-  {
+  if (urlStruct[parsedUrl.pathname]) {
     urlStruct[parsedUrl.pathname](request, response, params);
-  }
-  else
-  {
+  } else {
     urlStruct.notFound(request, response, params);
   }
 };

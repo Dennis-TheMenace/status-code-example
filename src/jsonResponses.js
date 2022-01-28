@@ -16,13 +16,12 @@ const badRequest = (request, response, params) => {
   const responseJSON = {
     message: 'This request has the required parameters',
   };
-  
+
   // /badRequest?valid=true = 200 status code
-  //anything else = 400 status code
-  if(!params.valid || params.valid !== 'true')
-  {
-    responseJSON.message = `Missing valid query param set to true`;
-    responseJSON.id =  `badRequestValidTrue`;
+  // anything else = 400 status code
+  if (!params.valid || params.valid !== 'true') {
+    responseJSON.message = 'Missing valid query param set to true';
+    responseJSON.id = 'badRequestValidTrue';
     return respondJSON(request, response, 400, responseJSON);
   }
 
@@ -35,6 +34,7 @@ const notFound = (request, response) => {
     id: 'notFound',
   };
 
+  return respondJSON(request, response, 404, responseJSON);
 };
 
 module.exports = {
